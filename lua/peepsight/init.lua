@@ -34,8 +34,8 @@ function M.disable()
 end
 
 
-function M.setup(queries)
-  M.options = vim.tbl_deep_extend("force", {}, defaults, {})
+function M.setup(queries, options)
+  M.options = vim.tbl_deep_extend("force", {}, defaults, options or {})
   M.queries = vim.tbl_deep_extend("force", {}, default_queries, queries or {})
 
   if M.options.enable then
@@ -47,7 +47,7 @@ function M.run()
   if M.options.enable then
     utils.clear(ns)
 
-    sight.focus(ns, M.queries)
+    sight.focus(ns, M.queries, M.options)
   end
 end
 

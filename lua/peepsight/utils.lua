@@ -23,11 +23,11 @@ function utils.contains(table, element)
   return false
 end
 
-function utils.dim(namespace, buffer, line_number)
+function utils.dim(namespace, buffer, line_number, options)
   pcall(vim.api.nvim_buf_set_extmark, buffer, namespace, line_number, 0, {
     end_line = line_number + 1,
     end_col = 0,
-    hl_group = "Comment", -- mvp
+    hl_group = options.highlight.hl_group or "Comment", -- mvp
     hl_eol = true,
     priority = 10000,
   })
