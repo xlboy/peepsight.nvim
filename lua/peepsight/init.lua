@@ -23,7 +23,7 @@ local default_queries = {
 function M.enable()
   M.options.enable = true
 
-  sight.focus(ns, M.queries)
+  sight.focus(ns, M.queries, M.options)
   utils.set_autocmd()
 end
 
