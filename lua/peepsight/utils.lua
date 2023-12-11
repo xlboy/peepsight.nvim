@@ -33,8 +33,8 @@ function utils.dim(namespace, buffer, line_number, options)
   })
 end
 
-function utils.clear(namespace)
-  vim.api.nvim_buf_clear_namespace(0, namespace, 0, -1)
+function utils.clear(namespace, buf)
+  vim.api.nvim_buf_clear_namespace(buf or 0, namespace, 0, -1)
 end
 
 return utils
